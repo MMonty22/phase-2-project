@@ -57,3 +57,17 @@ body {
   border: none;
   width: 20rem;
 }
+
+.card h3 {
+  margin-top: 1rem;
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.card h4 {
+  color: white
+}
+
+.card p {
+  color: white
+}
