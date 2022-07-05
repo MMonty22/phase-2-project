@@ -6,6 +6,7 @@ import FavoriteContainer from "./FavoriteContainer";
 function App() {
   const [baseballCards, setBaseballCards] = useState([])
   const [favCards, setFavCards] = useState([])
+  const [isFavorite, setIsFavorite] = useState(false)
 
   useEffect(() => {
     fetch('http://localhost:3000/baseballCards')
