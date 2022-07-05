@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { Route, Switch } from "react-router-dom";
 import MainContainer from "./MainContainer";
 import NavBar from "./NavBar";
 import FavoriteContainer from "./FavoriteContainer";
@@ -47,11 +48,19 @@ function App() {
     <div className="App">
       <h1 className="header">Baseball Card Binder</h1>
       <NavBar />
-      <MainContainer baseballCards={baseballCards} onFavoriteClick={onFavoriteClick} />
-      <FavoriteContainer favCards={favCards} removeFavorite={removeFavorite} isFavorite={isFavorite}/>
-      <NewCardForm addCard={addCard} />
+      <Switch>
+        <Route exact path="/">
+          <MainContainer baseballCards={baseballCards} addCard={addCard} onFavoriteClick={onFavoriteClick}/>
+        </Route>
+        <Route path="/Favorites">
+          <FavoriteContainer favCards={favCards} removeFavorite={removeFavorite} isFavorite={isFavorite}/>
+        </Route>
+        <Route path="/AddCard">
+          <NewCardForm addCard={addCard} />
+        </Route>
+      </Switch>
     </div>
-  )
+  );
 }
 
 export default App;
