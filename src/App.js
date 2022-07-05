@@ -21,11 +21,20 @@ function App() {
     if (!favoriteCards) {
       setFavCards([...favCards, favoriteCard])
     }
+    checkFavorite()
   }
 
   function removeFavorite(cardToRemove) {
     const formerFavorties = favCards.filter((card) => card.id !== cardToRemove.id)
     setFavCards(formerFavorties)
+    checkFavorite()
+  }
+
+  function checkFavorite() {
+    if (favCards.length > 0) {
+      setIsFavorite(false)
+    }
+    else setIsFavorite(true)
   }
 
   return (
@@ -33,7 +42,7 @@ function App() {
       <h1 className="header">Baseball Card Binder</h1>
       <NavBar />
       <MainContainer baseballCards={baseballCards} onFavoriteClick={onFavoriteClick} />
-      <FavoriteContainer favCards={favCards} removeFavorite={removeFavorite}/>
+      <FavoriteContainer favCards={favCards} removeFavorite={removeFavorite} isFavorite={isFavorite}/>
     </div>
   )
 }
