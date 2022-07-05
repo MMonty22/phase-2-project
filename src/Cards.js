@@ -1,8 +1,16 @@
 import React from "react";
 
-function Cards() {
+function Cards({card}) {
+const {player, team, image, position} = card
+
   return (
-    <div></div>
+    <div className="card">
+      <h3>{player}</h3>
+      <img src={image} alt={player}/>
+      <h4>{team}</h4>
+      <p>{position}</p>
+      <button></button>
+    </div>
   )
 }
 
