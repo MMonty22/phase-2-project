@@ -1,7 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 
-function Cards({card}) {
-const {player, team, image, position} = card
+function CardList({card, onFavoriteClick}) {
+  const [isActive, setIsActive] = useState(false)
+
+  const {player, team, image, position} = card
+
+  function handleClick() {
+    setIsActive(!isActive)
+    onFavoriteClick(card)
+  }
 
   return (
     <div className="card">
@@ -9,9 +16,9 @@ const {player, team, image, position} = card
       <img src={image} alt={player}/>
       <h4>{team}</h4>
       <p>{position}</p>
-      <button></button>
+      <button onClick={handleClick}>{isActive ? "❤️ Favorite" : "🤍 Favorite"}</button>
     </div>
   )
 }
 
-export default Cards;
+export default CardList
