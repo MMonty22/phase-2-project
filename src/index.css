@@ -27,3 +27,16 @@ body {
   font-size: 50px;
   color: white;
 }
+
+.card {
+  margin: 2rem 2.3rem;
+  margin-bottom: 1.5625rem;
+  justify-content: center;
+  text-align: center;
+  border: grey solid 1px;
+  background-color: #36648B;
+  display: inline-grid;
+  width: 20rem;
+  height: 30rem;
+  box-shadow: 3px 4px #504b55;
+}
