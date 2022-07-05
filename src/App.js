@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import MainContainer from "./MainContainer";
 import NavBar from "./NavBar";
 import FavoriteContainer from "./FavoriteContainer";
+import NewCardForm from "./NewCardForm";
 
 function App() {
   const [baseballCards, setBaseballCards] = useState([])
@@ -37,12 +38,18 @@ function App() {
     else setIsFavorite(true)
   }
 
+  function addCard(newCard) {
+    const updatedCards = [newCard, ...baseballCards]
+    setBaseballCards(updatedCards)
+  }
+
   return (
     <div className="App">
       <h1 className="header">Baseball Card Binder</h1>
       <NavBar />
       <MainContainer baseballCards={baseballCards} onFavoriteClick={onFavoriteClick} />
       <FavoriteContainer favCards={favCards} removeFavorite={removeFavorite} isFavorite={isFavorite}/>
+      <NewCardForm addCard={addCard} />
     </div>
   )
 }
