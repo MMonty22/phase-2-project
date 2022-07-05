@@ -120,3 +120,27 @@ label {
   justify-content: space-between;
   padding: 0.5rem calc((90vw - 6.25rem) / 2);
 }
+
+.cardLink {
+  color: black;
+  text-align: center;
+  padding: 6px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.favLink {
+  color: black;
+  text-align: center;
+  padding: 6px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.formLink {
+  color: black;
+  text-align: center;
+  padding: 6px;
+  font-size: 1rem;
+  font-weight: 400;
+}
