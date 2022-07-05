@@ -40,3 +40,20 @@ body {
   height: 30rem;
   box-shadow: 3px 4px #504b55;
 }
+
+.card img {
+  width: 15rem;
+  height: 22.21rem;
+  margin: auto;
+  display: block;
+  border: 2px solid black;
+}
+
+.card button {
+  margin-top: auto;
+  position: center;
+  background-color: dodgerblue;
+  color: white;
+  border: none;
+  width: 20rem;
+}
