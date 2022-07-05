@@ -96,3 +96,12 @@ label {
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.new-card-form button {
+  width: 6.25rem;
+  height: 2.1875rem;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
