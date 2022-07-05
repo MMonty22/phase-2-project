@@ -1,8 +1,8 @@
 import React from "react";
 import Favorites from "./Favorites";
 
-function FavoriteContainer({favCards}) {
-  const favoriteCards = favCards.map((card) => <Favorites key={card.id} card={card} />)
+function FavoriteContainer({favCards, removeFavorite}) {
+  const favoriteCards = favCards.map((card) => <Favorites key={card.id} card={card} removeFavorite={removeFavorite} />)
   
   return (
     <div>

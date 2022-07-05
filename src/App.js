@@ -17,7 +17,14 @@ function App() {
 
   function onFavoriteClick(favoriteCard) {
     const favoriteCards = favCards.find((card) => card.id === favoriteCard.id)
-    setFavCards([...favCards, favoriteCard])
+    if (!favoriteCards) {
+      setFavCards([...favCards, favoriteCard])
+    }
+  }
+
+  function removeFavorite(cardToRemove) {
+    const formerFavorties = favCards.filter((card) => card.id !== cardToRemove.id)
+    setFavCards(formerFavorties)
   }
 
   return (
@@ -25,7 +32,7 @@ function App() {
       <h1 className="header">Baseball Card Binder</h1>
       <NavBar />
       <MainContainer baseballCards={baseballCards} onFavoriteClick={onFavoriteClick} />
-      <FavoriteContainer favCards={favCards} />
+      <FavoriteContainer favCards={favCards} removeFavorite={removeFavorite}/>
     </div>
   )
 }
