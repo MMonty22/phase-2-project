@@ -25,22 +25,38 @@ function NewCardForm({addCard}) {
         .then((data) => addCard(data))
     }
 
-  return (
-    <div>
-        <h2 className="new-card">Add A Card</h2>
-        <form onSubmit={handleSubmit}>
-            <label>Player Name</label>
-            <input type="text" name="name" placeholder="Players full name" value={playerName} />
-            <label>Image URL</label>
-            <input type="text" name="image" placeholder="Link to image" value={image} />
-            <label>Team Name</label>
-            <input type="text" name="team" placeholder="Ex: Chicago Cubs" value={team} />
-            <label>Player Position</label>
-            <input type="text" name="position" placeholder="Ex: OF" value={playerPos} />
-            <button type="submit">Add Card</button>
+    function handleNameChange(event) {
+        setPlayerName(event.target.value)
+    }
+
+    function handleImageChange(event) {
+        setImage(event.target.value)
+    }
+
+    function handleTeamChange(event) {
+        setTeam(event.target.value)
+    }
+
+    function handlePositionChange(event) {
+        setPlayerPos(event.target.value)
+    }
+
+    return (
+        <div className="new-card-form">
+            <h2 className="new-card">Add A Card</h2>
+            <form onSubmit={handleSubmit}>
+                <label>Player Name</label>
+                <input type="text" name="name" placeholder="Players full name" value={playerName} onChange={handleNameChange}/>
+                <label>Image URL</label>
+                <input type="text" name="image" placeholder="Link to image" value={image} onChange={handleImageChange}/>
+                <label>Team Name</label>
+                <input type="text" name="team" placeholder="Ex: Chicago Cubs" value={team} onChange={handleTeamChange}/>
+                <label>Player Position</label>
+                <input type="text" name="position" placeholder="Ex: OF" value={playerPos} onChange={handlePositionChange}/>
+                <button type="submit">Add Card</button>
             </form>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default NewCardForm;
