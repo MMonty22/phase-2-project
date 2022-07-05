@@ -85,3 +85,14 @@ input {
   border-bottom: 2px solid gray;
 }
 
+label {
+  margin-top: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0.625rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
