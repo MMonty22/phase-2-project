@@ -18,6 +18,13 @@ function App() {
     })
   }, [])
 
+  function checkFavorite() {
+    if (favCards.length > 0) {
+      setIsFavorite(false)
+    }
+    else setIsFavorite(true)
+  }
+
   function onFavoriteClick(favoriteCard) {
     const favoriteCards = favCards.find((card) => card.id === favoriteCard.id)
     if (!favoriteCards) {
@@ -30,13 +37,6 @@ function App() {
     const formerFavorties = favCards.filter((card) => card.id !== cardToRemove.id)
     setFavCards(formerFavorties)
     checkFavorite()
-  }
-
-  function checkFavorite() {
-    if (favCards.length > 0) {
-      setIsFavorite(false)
-    }
-    else setIsFavorite(true)
   }
 
   function addCard(newCard) {
