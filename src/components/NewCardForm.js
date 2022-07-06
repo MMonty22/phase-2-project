@@ -1,10 +1,12 @@
 import React, {useState} from "react";
+import {useHistory} from "react-router-dom"
 
 function NewCardForm({addCard}) {
     const [playerName, setPlayerName] = useState("")
     const [image, setImage] = useState("")
     const [team, setTeam] = useState("")
     const [playerPos, setPlayerPos] = useState("")
+    const history = useHistory();
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -23,6 +25,7 @@ function NewCardForm({addCard}) {
         })
         .then(res => res.json())
         .then((data) => addCard(data))
+        history.push("/")
     }
 
     function handleNameChange(event) {
