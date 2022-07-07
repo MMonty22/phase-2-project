@@ -13,6 +13,7 @@ View different Major League Baseball player cards. Each card shows the player's 
 - Remove the card from your favorites list by clicking the remove button on each card
 - Add a new card to the Cards page by submitting the form with the necessary information on the Add Card page
 - Users will be automatically sent to the Cards page after submitting the form
+- Users can also add the new card directly to their favorites page using the checkbox
 
 ## Credits
 - Topps for all the baseball card images
