@@ -18,30 +18,29 @@ function App() {
     })
   }, [])
 
-  function checkFavorite() {
+  useEffect(() => {
     if (favCards.length > 0) {
-      setIsFavorite(false)
+      setIsFavorite(true)
     }
-    else setIsFavorite(true)
-  }
+    else setIsFavorite(false)
+  }, [isFavorite, favCards.length])
 
   function onFavoriteClick(favoriteCard) {
-    const favoriteCards = favCards.find((card) => card.id === favoriteCard.id)
-    if (!favoriteCards) {
-      setFavCards([...favCards, favoriteCard])
-    }
-    checkFavorite()
+    setFavCards([...favCards, favoriteCard])
   }
 
   function removeFavorite(cardToRemove) {
     const formerFavorties = favCards.filter((card) => card.id !== cardToRemove.id)
     setFavCards(formerFavorties)
-    checkFavorite()
   }
 
   function addCard(newCard) {
     const updatedCards = [newCard, ...baseballCards]
     setBaseballCards(updatedCards)
+  }
+
+  function addFavoriteByCheck(checkedCard) {
+    setFavCards([...favCards, checkedCard])
   }
 
   return (
@@ -56,7 +55,7 @@ function App() {
           <FavoriteContainer favCards={favCards} removeFavorite={removeFavorite} isFavorite={isFavorite}/>
         </Route>
         <Route path="/AddCard">
-          <NewCardForm addCard={addCard} />
+          <NewCardForm addCard={addCard} addFavoriteByCheck={addFavoriteByCheck} />
         </Route>
       </Switch>
     </div>

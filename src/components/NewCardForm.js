@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import {useHistory} from "react-router-dom"
 
-function NewCardForm({addCard}) {
+function NewCardForm({addCard, addFavoriteByCheck}) {
     const [playerName, setPlayerName] = useState("")
     const [image, setImage] = useState("")
     const [team, setTeam] = useState("")
     const [playerPos, setPlayerPos] = useState("")
     const history = useHistory();
+    const [checked, setChecked] = useState(false)
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -24,8 +25,14 @@ function NewCardForm({addCard}) {
             body: JSON.stringify(newCardObj)
         })
         .then(res => res.json())
-        .then((data) => addCard(data))
+        .then((data) => {
+            addCard(data)
+            if (checked) {
+                addFavoriteByCheck(data)
+            }
+        })
         history.push("/")
+
     }
 
     function handleNameChange(event) {
@@ -44,6 +51,10 @@ function NewCardForm({addCard}) {
         setPlayerPos(event.target.value)
     }
 
+    function handleChange() {
+        setChecked(!checked)
+    }
+
     return (
         <div className="new-card-form">
             <h2 className="new-card">Add A Card</h2>
@@ -57,6 +68,8 @@ function NewCardForm({addCard}) {
                 <label>Player Position</label>
                 <input type="text" name="position" placeholder="Ex: OF" value={playerPos} onChange={handlePositionChange}/>
                 <button type="submit">Add Card</button>
+                <label>Add to Favorites?</label>
+                <input id="checkbox" type="checkbox" checked={checked} onChange={handleChange}></input>
             </form>
         </div>
     )
